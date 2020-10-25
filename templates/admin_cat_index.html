@@ -1,0 +1,11 @@
+<{include file='db:admin_top.html'}>
+				  <{if $view eq 'list'}>
+						<{include file='db:admin_cat_list.html'}>
+					<{elseif $view eq 'add'}>
+						<{include file='db:admin_cat_add.html'}>
+					<{elseif $view eq 'modify'}>
+						<{include file='db:admin_cat_modify.html'}>
+					<{else}>
+						<{include file='db:admin_cat_list.html'}>
+					<{/if}>
+<{include file='db:admin_bot.html'}>

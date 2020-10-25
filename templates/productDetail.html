@@ -1,0 +1,17 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+ <tr> 
+	<td align="center">
+		<img src="<{$pd_image}>" border="0" alt="<{$pd_name}>"><br>
+		<strong><{$pd_name}></strong><br>
+		<{$pd_title}><br>
+		<{$pd_description}><br>
+		Price : <{$pd_price}>&nbsp;<{$currency}><br>
+		Stock:<{$pd_qty}><br>
+		<{if $pd_qty>0}>
+			<input type="button" name="btnAddToCart" value="Add To Cart &gt;" onClick="window.location.href='<{$cart_url}>';" class="addToCartButton">
+		<{else}>
+			Out Of Stock
+		<{/if}>
+	</td>
+ </tr>
+</table>

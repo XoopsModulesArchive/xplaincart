@@ -1,0 +1,9 @@
+<{include file='db:admin_top.html'}>
+				  <{if $view eq 'list'}>
+						<{include file='db:admin_order_list.html'}>
+					<{elseif $view eq 'detail'}>
+						<{include file='db:admin_order_detail.html'}>
+					<{else}>
+						<{include file='db:admin_order_list.html'}>
+					<{/if}>
+<{include file='db:admin_bot.html'}>

@@ -1,0 +1,35 @@
+<table width="100%" border="1" cellspacing="0" cellpadding="2" id="minicart">
+<{if $numItem>0}>
+ <tr>
+  <td colspan="2">Cart Content</td>
+ </tr>
+	<{foreach from=$minicart_data item=product}>
+	 <tr>
+	   <td><a href=<{$product.url}>><{$product.pd_name}></a></td>
+	  <td width="30%" align="right"><{$product.pd_subtotal}></td>
+	 </tr>
+	<{/foreach}>
+	<tr>
+		<td align="right">Sub-total</td>
+		<td width="30%" align="right"><{$subtotal}></td>
+	 </tr>
+	 <tr>
+		<td align="right">Shipping</td>
+		<td width="30%" align="right"><{$shippingCost}></td>
+	</tr>
+	<tr>
+		<td align="right">Total</td>
+		<td width="30%" align="right"><{$total}></td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td></tr>
+	<tr>
+		<td colspan="2" align="center"><a href="cart.php?action=view"> Go To Shopping Cart</a></td>
+	</tr>  
+<{else}>
+	<tr>
+		<td colspan="2" align="center" valign="middle">Shopping Cart Is Empty</td>
+	</tr>
+<{/if}>
+</table>
+

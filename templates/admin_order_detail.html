@@ -1,0 +1,147 @@
+<p>&nbsp;</p>
+<form action="" method="get" name="frmOrder" id="frmOrder">
+    <table width="550" border="0"  align="center" cellpadding="5" cellspacing="1" class="detailTable">
+        <tr> 
+            <td colspan="2" align="center" id="infoTableHeader">Order Detail</td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Order Number</td>
+            <td class="content"><{$orderId}></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Order Date</td>
+            <td class="content"><{$od_date}></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Last Update</td>
+            <td class="content"><{$od_last_update}></td>
+        </tr>
+        <tr> 
+            <td class="label">Status</td>
+            <td class="content"> <select name="cboOrderStatus" id="cboOrderStatus" class="box">
+                    <{$orderOption}> </select> <input name="btnModify" type="button" id="btnModify" value="Modify Status" class="box" onClick="modifyOrderStatus(<{$orderId}>);"></td>
+        </tr>
+    </table>
+</form>
+<p>&nbsp;</p>
+<table width="550" border="0"  align="center" cellpadding="5" cellspacing="1" class="detailTable">
+    <tr id="infoTableHeader"> 
+        <td colspan="3">Ordered Item</td>
+    </tr>
+    <tr align="center" class="label"> 
+        <td>Item</td>
+        <td>Unit Price</td>
+        <td>Total</td>
+    </tr>
+	<{foreach from=$data item='info'}>
+    <tr class="content"> 
+        <td><{$info.sub_pd_qty}></td>
+        <td align="right"><{$info.pd_price}></td>
+        <td align="right"><{$info.sub_pd_total}></td>
+    </tr>
+	<{/foreach}>
+    <tr class="content"> 
+        <td colspan="2" align="right">Sub-total</td>
+        <td align="right"><{$subTotal}></td>
+    </tr>
+    <tr class="content"> 
+        <td colspan="2" align="right">Shipping</td>
+        <td align="right"><{$od_shipping_cost}></td>
+    </tr>
+    <tr class="content"> 
+        <td colspan="2" align="right">Total</td>
+        <td align="right"><{$total}></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<table width="550" border="0"  align="center" cellpadding="5" cellspacing="1" class="detailTable">
+    <tr id="infoTableHeader"> 
+        <td colspan="2">Shipping Information</td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">First Name</td>
+        <td class="content"><{$od_shipping_first_name}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Last Name</td>
+        <td class="content"><{$od_shipping_last_name}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Address1</td>
+        <td class="content"><{$od_shipping_address1}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Address2</td>
+        <td class="content"><{$od_shipping_address2}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Phone Number</td>
+        <td class="content"><{$od_shipping_phone}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Province / State</td>
+        <td class="content"><{$od_shipping_state}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">City</td>
+        <td class="content"><{$od_shipping_city}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Postal Code</td>
+        <td class="content"><{$od_shipping_postal_code}> </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<table width="550" border="0"  align="center" cellpadding="5" cellspacing="1" class="detailTable">
+    <tr id="infoTableHeader"> 
+        <td colspan="2">Payment Information</td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">First Name</td>
+        <td class="content"><{$od_payment_first_name}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Last Name</td>
+        <td class="content"><{$od_payment_last_name}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Address1</td>
+        <td class="content"><{$od_payment_address1}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Address2</td>
+        <td class="content"><{$od_payment_address2}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Phone Number</td>
+        <td class="content"><{$od_payment_phone}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Province / State</td>
+        <td class="content"><{$od_payment_state}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">City</td>
+        <td class="content"><{$od_payment_city}> </td>
+    </tr>
+    <tr> 
+        <td width="150" class="label">Postal Code</td>
+        <td class="content"><{$od_payment_postal_code}> </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<table width="550" border="0"  align="center" cellpadding="5" cellspacing="1" class="detailTable">
+    <tr id="infoTableHeader"> 
+        <td colspan="2">Buyer's Memo</td>
+    </tr>
+    <tr> 
+        <td colspan="2" class="label"><{$od_memo}> </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center"> 
+    <input name="btnBack" type="button" id="btnBack" value="Back" class="box" onClick="window.history.back();">
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+

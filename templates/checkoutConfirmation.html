@@ -1,0 +1,165 @@
+<script language="JavaScript" type="text/javascript" src="library/checkout.js"></script>
+<table width="550" border="0" align="center" cellpadding="10" cellspacing="0">
+    <tr> 
+        <td>Step 2 Of 3 : Confirm Order </td>
+    </tr>
+</table>
+<p id="errorMessage"><{$errorMessage}></p>
+<form action="<{$SCRIPT_NAME}>?step=3" method="post" name="frmCheckout" id="frmCheckout">
+<{if $optPayment == 'paypal'}>
+    <table width="550" border="0" align="center" cellpadding="10" cellspacing="0">
+        <tr> 
+            <td align="center"><strong>:: IMPORTANT NOTE :: </strong></td>
+        </tr>
+        <tr> 
+            <td><p>Before clicking the &quot;Confirm Order&quot; button open a 
+                    new browser window and go to <a href="https://developer.paypal.com" target="_blank">https://developer.paypal.com</a> 
+                    then login using this username and password :<br>
+                    Email : armanpi@phpwebcommerce.com<br>
+                    Password : phpwebco<br>
+                    <br>
+                    After you click on the &quot;Confirm Order&quot; button below 
+                    you will be redirected to paypal website. On the paypal checkout 
+                    page use these info to login and complete the checkout process 
+                    :<br>
+                    Email : testme@phpwebcommerce.com <br>
+                    Password : phpwebco </p>
+                <p>By the way, please don't change the password or delete the 
+                    test email okay :-)</p></td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+<{/if}>
+    <table width="550" border="0" align="center" cellpadding="5" cellspacing="1" class="infoTable">
+        <tr class="infoTableHeader"> 
+            <td colspan="3">Ordered Item</td>
+        </tr>
+        <tr class="label"> 
+            <td>Item</td>
+            <td>Unit Price</td>
+            <td>Total</td>
+        </tr>
+<{foreach from=$data item='info'}>
+        <tr class="content"> 
+            <td class="content"><{$info.product}></td>
+            <td align="right"><{$info.pd_price}></td>
+            <td align="right"><{$info.pd_subtotal}></td>
+        </tr>
+<{/foreach}>
+        <tr class="content"> 
+            <td colspan="2" align="right">Sub-total</td>
+            <td align="right"><{$subTotal}></td>
+        </tr>
+        <tr class="content"> 
+            <td colspan="2" align="right">Shipping</td>
+            <td align="right"><{$shippingCost}></td>
+        </tr>
+        <tr class="content"> 
+            <td colspan="2" align="right">Total</td>
+            <td align="right"><{$total}></td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <table width="550" border="0" align="center" cellpadding="5" cellspacing="1" class="infoTable">
+        <tr class="infoTableHeader"> 
+            <td colspan="2">Shipping Information</td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">First Name</td>
+            <td class="content"><{$ShippingFirstName}>
+                <input name="hidShippingFirstName" type="hidden" id="hidShippingFirstName" value="<{$ShippingFirstName}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Last Name</td>
+            <td class="content"><{$ShippingLastName}>
+                <input name="hidShippingLastName" type="hidden" id="hidShippingLastName" value="<{$ShippingLastName}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Address1</td>
+            <td class="content"><{$ShippingAddress1}>
+                <input name="hidShippingAddress1" type="hidden" id="hidShippingAddress1" value="<{$ShippingAddress1}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Address2</td>
+            <td class="content"><{$ShippingAddress2}>
+                <input name="hidShippingAddress2" type="hidden" id="hidShippingAddress2" value="<{$ShippingAddress2}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Phone Number</td>
+            <td class="content"><{$ShippingPhone}>
+                <input name="hidShippingPhone" type="hidden" id="hidShippingPhone" value="<{$ShippingPhone}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Province / State</td>
+            <td class="content"><{$ShippingState}> <input name="hidShippingState" type="hidden" id="hidShippingState" value="<{$ShippingState}>" ></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">City</td>
+            <td class="content"><{$ShippingCity}>
+                <input name="hidShippingCity" type="hidden" id="hidShippingCity" value="<{$ShippingCity}>" ></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Postal Code</td>
+            <td class="content"><{$ShippingPostalCode}>
+                <input name="hidShippingPostalCode" type="hidden" id="hidShippingPostalCode" value="<{$ShippingPostalCode}>"></td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <table width="550" border="0" align="center" cellpadding="5" cellspacing="1" class="infoTable">
+        <tr class="infoTableHeader"> 
+            <td colspan="2">Payment Information</td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">First Name</td>
+            <td class="content"><{$PaymentFirstName}>
+                <input name="hidPaymentFirstName" type="hidden" id="hidPaymentFirstName" value="<{$PaymentFirstName}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Last Name</td>
+            <td class="content"><{$PaymentLastName}>
+                <input name="hidPaymentLastName" type="hidden" id="hidPaymentLastName" value="<{$PaymentLastName}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Address1</td>
+            <td class="content"><{$PaymentAddress1}>
+                <input name="hidPaymentAddress1" type="hidden" id="hidPaymentAddress1" value="<{$PaymentAddress1}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Address2</td>
+            <td class="content"><{$PaymentAddress2}> <input name="hidPaymentAddress2" type="hidden" id="hidPaymentAddress2" value="<{$PaymentAddress2}>"> 
+            </td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Phone Number</td>
+            <td class="content"><{$PaymentPhone}> <input name="hidPaymentPhone" type="hidden" id="hidPaymentPhone" value="<{$PaymentPhone}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Province / State</td>
+            <td class="content"><{$PaymentState}> <input name="hidPaymentState" type="hidden" id="hidPaymentState" value="<{$PaymentState}>" ></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">City</td>
+            <td class="content"><{$PaymentCity}>
+                <input name="hidPaymentCity" type="hidden" id="hidPaymentCity" value="<{$PaymentCity}>"></td>
+        </tr>
+        <tr> 
+            <td width="150" class="label">Postal Code</td>
+            <td class="content"><{$PaymentPostalCode}>
+                <input name="hidPaymentPostalCode" type="hidden" id="hidPaymentPostalCode" value="<{$PaymentPostalCode}>"></td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <table width="550" border="0" align="center" cellpadding="5" cellspacing="1" class="infoTable">
+      <tr>
+        <td width="150" class="infoTableHeader">Payment Method </td>
+        <td class="content"><{$optPayment}>
+          <input name="hidPaymentMethod" type="hidden" id="hidPaymentMethod" value="<{$optPayment}>">
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p align="center"> 
+        <input name="btnBack" type="button" id="btnBack" value="&lt;&lt; Modify Shipping/Payment Info" onClick="window.location.href='checkout.php?step=1';" class="box">
+        &nbsp;&nbsp; 
+        <input name="btnConfirm" type="submit" id="btnConfirm" value="Confirm Order &gt;&gt;" class="box">
+</form>
+<p>&nbsp;</p>

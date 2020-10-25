@@ -1,0 +1,44 @@
+<p>&nbsp;</p>
+<form action="processCategory.php?action=addCategory" method="post"  name="frmListCategory" id="frmListCategory">
+	<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="text">
+		<tr align="center" id="listTableHeader"> 
+			<td>Category Name</td>
+			<td>Category Title</td>
+			<td>Description</td>
+			<td width="75">Image</td>
+			<td width="75">Modify</td>
+			<td width="75">Delete</td>
+		</tr>
+		<{if $have_cat>0}>
+		<{foreach from=$data item='info'}>
+		<tr class="<{$info.class}>"> 
+			<td><{$info.cat_name}></td>
+			<td><{$info.cat_title}></td>
+			<td><{$info.cat_description}></td>
+			<td width="75" align="center"><img src="<{$info.cat_image}>"></td>
+			<td width="75" align="center"><a href="javascript:modifyCategory(<{$info.cat_id}>);">Modify</a></td>
+			<td width="75" align="center"><a href="javascript:deleteCategory(<{$info.cat_id}>);">Delete</a></td>
+		</tr>
+		<{/foreach}>
+		<tr> 
+			<td colspan="5" align="center">
+				<{$pagingLink}>
+			</td>
+		</tr>
+<{else}>
+		<tr> 
+			<td colspan="5" align="center">No Categories Yet</td>
+		</tr>
+<{/if}>
+		<tr> 
+			<td colspan="5">&nbsp;</td>
+		</tr>
+		<tr> 
+			<td colspan="5" align="right"> <input name="btnAddCategory" type="button" id="btnAddCategory" value="Add Category" class="box" onClick="addCategory(<{$catId}>)"> 
+			</td>
+		</tr>
+	</table>
+	<p>&nbsp;</p>
+</form>
+
+	

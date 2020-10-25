@@ -1,0 +1,66 @@
+<{include file='db:plain_header.html'}>
+<form action=<{$SCRIPT_NAME}>?action=update method="post" name="frmCart" id="frmCart">
+ <table width="780" border="0" align="center" cellpadding="5" cellspacing="1" class="entryTable">
+  <tr class="entryTableHeader"> 
+   <td colspan="2" align="center">Item</td>
+   <td align="center">Unit Price</td>
+   <td width="75" align="center">Quantity</td>
+   <td align="center">Total</td>
+  <td width="75" align="center">&nbsp;</td>
+ </tr>
+ <{if $numItem>0}>
+<{foreach from=$data item="info"}>
+ <tr class="content"> 
+  <td width="80" align="center"><a href=<{$info.pd_url}>><img src=<{$info.pd_thumbnail}> border="0"></a></td>
+  <td><a href="<{$info.pd_url}>"><{$info.pd_name}></a></td>
+   <td align="right"><{$info.pd_price}></td>
+  <td width="75"><input name="txtQty[]" type="text" id="txtQty[]" size="5" value="<{$info.ct_qty}>" class="box" onKeyUp="checkNumber(this);">
+  <input name="hidCartId[]" type="hidden" value="<{$info.ct_id}>">
+  <input name="hidProductId[]" type="hidden" value="<{$info.pd_id}>">
+  </td>
+  <td align="right"><{$info.pd_subtotal}></td>
+  <td width="75" align="center"> <input name="btnDelete" type="button" id="btnDelete" value="Delete" onClick="window.location.href='<{$SCRIPT_NAME}>?action=delete&cid=<{$info.ct_id}>';" class="box"> 
+  </td>
+ </tr>
+<{/foreach}>
+ <tr class="content"> 
+  <td colspan="4" align="right">Sub-total</td>
+  <td align="right"><{$subTotal}></td>
+  <td width="75" align="center">&nbsp;</td>
+ </tr>
+<tr class="content"> 
+   <td colspan="4" align="right">Shipping </td>
+  <td align="right"><{$shippingCost}></td>
+  <td width="75" align="center">&nbsp;</td>
+ </tr>
+<tr class="content"> 
+   <td colspan="4" align="right">Total </td>
+  <td align="right"><{$total}></td>
+  <td width="75" align="center">&nbsp;</td>
+ </tr>  
+ <tr class="content"> 
+  <td colspan="5" align="right">&nbsp;</td>
+  <td width="75" align="center">
+<input name="btnUpdate" type="submit" id="btnUpdate" value="Update Cart" class="box"></td>
+ </tr>
+</table>
+</form>
+<{else}>
+<p>&nbsp;</p><table width="550" border="0" align="center" cellpadding="10" cellspacing="0">
+ <tr>
+  <td><p align="center">You shopping cart is empty</p>
+   <p>If you find you are unable to add anything to your cart, please ensure that 
+    your internet browser has cookies enabled and that any other security software 
+    is not blocking your shopping session.</p></td>
+ </tr>
+</table>
+<{/if}>
+<table width="550" border="0" align="center" cellpadding="10" cellspacing="0">
+ <tr align="center"> 
+  <td><input name="btnContinue" type="button" id="btnContinue" value="&lt;&lt; Continue Shopping" onClick="window.location.href='<{$shoppingReturnUrl}>';" class="box"></td>
+<{if $numItem>0}>
+  <td><input name="btnCheckout" type="button" id="btnCheckout" value="Proceed To Checkout &gt;&gt;" onClick="window.location.href='checkout.php?step=1';" class="box"></td>
+<{/if}>
+ </tr>
+</table>
+<{include file='db:plain_footer.html'}>

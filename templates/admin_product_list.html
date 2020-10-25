@@ -1,0 +1,52 @@
+<p>&nbsp;</p>
+<form action="processProduct.php?action=addProduct" method="post"  name="frmListProduct" id="frmListProduct">
+ <table width="100%" border="0" cellspacing="0" cellpadding="2" class="text">
+  <tr>
+   <td align="right">View products in : 
+    <select name="cboCategory" class="box" id="cboCategory" onChange="viewProduct();">
+     <option selected>All Category</option>
+	<{$categoryList}>
+   </select>
+ </td>
+ </tr>
+</table>
+<br>
+ <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="text">
+  <tr align="center" id="listTableHeader"> 
+   <td>Product Name</td>
+   <td>Product Title</td>
+   <td width="75">Thumbnail</td>
+   <td width="75">Category</td>
+   <td width="70">Modify</td>
+   <td width="70">Delete</td>
+  </tr>
+  <{if $haveProduct > 0}>
+  <{foreach from=$data item='info'}>
+  <tr class="$info.class"> 
+   <td><a href="index.php?view=detail&productId=<{$info.pd_id}>"><{$info.pd_name}></a></td>
+   <td align="center"><{$info.pd_title}></td>
+   <td width="75" align="center"><img src="<{$info.pd_thumbnail}>"></td>
+   <td width="75" align="center"><a href="?c=<{$info.cat_id}>"><{$info.cat_name}></a></td>
+   <td width="70" align="center"><a href="javascript:modifyProduct(<{$info.pd_id}>);">Modify</a></td>
+   <td width="70" align="center"><a href="javascript:deleteProduct(<{$info.pd_id}>, <{$info.catId}>);">Delete</a></td>
+  </tr>
+  <{/foreach}>
+  <tr> 
+   <td colspan="5" align="center">
+   <{$pagingLink}>
+   </td>
+  </tr>
+<{else}>
+  <tr> 
+   <td colspan="5" align="center">No Products Yet</td>
+  </tr>
+<{/if}>
+  <tr> 
+   <td colspan="5">&nbsp;</td>
+  </tr>
+  <tr> 
+   <td colspan="5" align="right"><input name="btnAddProduct" type="button" id="btnAddProduct" value="Add Product" class="box" onClick="addProduct(<{$catId}>)"></td>
+  </tr>
+ </table>
+ <p>&nbsp;</p>
+</form>

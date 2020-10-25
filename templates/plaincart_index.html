@@ -1,0 +1,25 @@
+<{include file="db:plain_header.html"}>
+<table width="100%" border="1" align="center" cellpadding="0" cellspacing="1">
+ <tr> 
+  <td colspan="3">
+	<{include file='db:top.html'}>
+  </td>
+ </tr>
+ <tr valign="top"> 
+  <td width="20%" height="400" id="leftnav"> 
+	<{include file='db:leftNav.html'}>
+  </td>
+  <td width="60%">
+	<{if $pdId}>
+		<{include file='db:productDetail.html'}>
+	<{elseif $catId}>
+		<{include file='db:pd_list.html'}>
+	<{else}>
+		<{include file='db:cat_list.html'}>
+	<{/if}>
+  </td>
+  <td width="20%" align="center"><{include file='db:miniCart.html'}></td>
+ </tr>
+</table>
+<{include file='db:plain_footer.html'}>
+

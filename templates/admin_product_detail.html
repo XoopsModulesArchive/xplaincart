@@ -1,0 +1,35 @@
+<p>&nbsp;</p>
+<form action="processProduct.php?action=addProduct" method="post" enctype="multipart/form-data" name="frmAddProduct" id="frmAddProduct">
+ <table width="100%" border="0" align="center" cellpadding="5" cellspacing="1" class="entryTable">
+  <tr> 
+   <td width="150" class="label">Category</td>
+   <td class="content"><{$cat_name}></td>
+  </tr>
+  <tr> 
+   <td width="150" class="label">Product Name</td>
+   <td class="content"> <{$pd_name}></td>
+  </tr>
+  <tr> 
+   <td width="150" class="label">Description</td>
+   <td class="content"><{$pd_description}> </td>
+  </tr>
+  <tr> 
+   <td width="150" height="36" class="label">Price</td>
+   <td class="content"><{$pd_price}> </td>
+  </tr>
+  <tr> 
+   <td width="150" class="label">Qty In Stock</td>
+   <td class="content"><{$pd_qty}> </td>
+  </tr>
+  <tr> 
+   <td width="150" class="label">Image</td>
+   <td class="content"><img src="<{$pd_image}>"></td>
+  </tr>
+ </table>
+ <p align="center"> 
+  <input name="btnModifyProduct" type="button" id="btnModifyProduct" value="Modify Product" onClick="window.location.href='index.php?view=modify&productId=<{$productId}>';" class="box">
+  &nbsp;&nbsp;
+  <input name="btnBack" type="button" id="btnBack" value=" Back " onClick="window.history.back();" class="box">
+ </p>
+</form>
+

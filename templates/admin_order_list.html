@@ -1,0 +1,44 @@
+<p>&nbsp;</p>
+<form action="processOrder.php" method="post"  name="frmOrderList" id="frmOrderList">
+ <table width="100%" border="0" cellspacing="0" cellpadding="2" class="text">
+ <tr align="center"> 
+  <td align="right">View</td>
+  <td width="75"><select name="cboOrderStatus" class="box" id="cboOrderStatus" onChange="viewOrder();">
+    <option value="" selected>All</option>
+    <{$orderOption}>
+  </select></td>
+  </tr>
+</table>
+
+ <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="text">
+  <tr align="center" id="listTableHeader"> 
+   <td width="60">Order #</td>
+   <td>Customer Name</td>
+   <td width="60">Amount</td>
+   <td width="150">Order Time</td>
+   <td width="70">Status</td>
+  </tr>
+  <{if $haveOrder >0}>
+  <{foreach from=$data item='info'}>
+  <tr class="<{$info.class}>"> 
+   <td width="60"><a href="<{$info.self}>"><{$info.od_id}></a></td>
+   <td><{$info.name}></td>
+   <td width="60" align="right"><{$info.od_amount}></td>
+   <td width="150" align="center"><{$info.od_date}></td>
+   <td width="70" align="center"><{$info.od_status}></td>
+  </tr>
+ <{/foreach}>
+  <tr> 
+   <td colspan="5" align="center">
+   <{$pagingLink}>
+   </td>
+  </tr>
+<{else}>
+  <tr> 
+   <td colspan="5" align="center">No Orders Found </td>
+  </tr>
+<{/if}>
+
+ </table>
+ <p>&nbsp;</p>
+</form>

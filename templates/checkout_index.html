@@ -1,0 +1,9 @@
+<{include file='db:plain_header.html'}>
+<{if $step == 1}>
+	<{include file='db:shippingAndPaymentInfo.html'}>
+<{elseif $step == 2}>
+	<{include file='db:checkoutConfirmation.html'}>
+<{elseif $step == 3}>
+
+<{/if}>
+<{include file='db:plain_footer.html'}>

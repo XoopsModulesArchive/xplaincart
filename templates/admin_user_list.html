@@ -1,0 +1,28 @@
+<p>&nbsp;</p>
+<form action="processUser.php?action=addUser" method="post"  name="frmListUser" id="frmListUser">
+ <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="text">
+  <tr align="center" id="listTableHeader"> 
+   <td>User Name</td>
+   <td width="120">Register Date</td>
+   <td width="120">Last login</td>
+   <td width="120">Change Password</td>
+   <td width="70">Delete</td>
+  </tr>
+	<{foreach from=$data item='info'}>
+  <tr class="<{$info.class}>"> 
+   <td><{$info.user_name}></td>
+   <td width="120" align="center"><{$info.user_regdate}></td>
+   <td width="120" align="center"><{$info.user_last_login}></td>
+   <td width="120" align="center"><a href="javascript:changePassword(<{$info.user_id}>);">Change Password</a></td>
+   <td width="70" align="center"><a href="javascript:deleteUser(<{$info.user_id}>);">Delete</a></td>
+  </tr>
+	<{/foreach}>
+  <tr> 
+   <td colspan="5">&nbsp;</td>
+  </tr>
+  <tr> 
+   <td colspan="5" align="right"><input name="btnAddUser" type="button" id="btnAddUser" value="Add User" class="box" onClick="addUser()"></td>
+  </tr>
+ </table>
+ <p>&nbsp;</p>
+</form>
